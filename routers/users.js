@@ -6,9 +6,10 @@ const db = require("../lib/database.js");
 router.get("/", async (req, res, next) => {
     // if we only need some specific documents, we can filter the result directly while fetching from the database.
     // by passing an object to find() with the needed properties and values we only get the documents that match this filter.
-    const movies = await db.collection("movies").find({ runtime: 14 }).toArray();
+    const  users= await db.collection("users").find().toArray();
+    console.log(users)
 
-    res.json(movies);
+    res.json(users);
 });
 
 module.exports = router;
