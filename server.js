@@ -10,11 +10,12 @@ require("./lib/database.js");
 
 const User = require ("./models/User.js")
 
+
 //server.use("/users", require("./routers/users.js"));
 
 server.post("/users", async (req, res, next)=> {
     try {
-        const newUser = await User.create("myUsername","myPassword","waytooold");
+        const newUser = await User.create("myUsername", "myPassword", 30);
         res.json(newUser);
     }catch(error) {
         

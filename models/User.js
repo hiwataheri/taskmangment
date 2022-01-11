@@ -17,7 +17,7 @@ const schema = new mongoose.Schema({
     versionkey:false,
 })
 
-const User = mongoose.connection.model("Product", schema);
+const User = mongoose.connection.model("User", schema);
 
 async function create (username, password,age) {
     const newUser = new User({
@@ -25,9 +25,9 @@ async function create (username, password,age) {
         password,
         age,
     })
-    console.log(newUser)
-    //console.log("before save");
-    //return await newUser.save();
+   // console.log(newUser)
+   //console.log("before save");
+    return await newUser.save();
 }
 
 async function readOldVersion() {
